@@ -13,5 +13,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body, input, textarea, button {
         font-family: 'Lato', sans-serif;
+        font-size: 1rem;
     } 
 `

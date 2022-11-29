@@ -4,39 +4,39 @@ import { HouseLine, Buildings, TrendUp, Bank, GlobeHemisphereWest, Coins, Airpla
 export function LateralMenu() {
     return (
         <LateralMenuContainer>
-            <PageButton>
+            <PageButton to="/" title="Home" end>
                 <HouseLine />
-                <p>Dashboard</p>
+                Dashboard
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/reits" title="FIIs">
                 <Buildings />
-                <p>FII</p>
+                FII
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/stocks" title="Ações">
                 <TrendUp />
-                <p>Ações</p>
+                Ações
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/publicTitle" title="FIIs">
                 <Bank />
-                <p>Renda fixa</p>
+                Renda fixa
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/bdr" title="BDR">
                 <GlobeHemisphereWest />
-                <p>BDR</p>
+                BDR
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/etf" title="ETF">
                 <Coins />
-                <p>ETF</p>
+                ETF
             </PageButton>
 
-            <PageButton>
+            <PageButton to="/miles" title="Milhas">
                 <AirplaneTilt />
-                <p>Milhas</p>
+                Milhas
             </PageButton>
             
         </LateralMenuContainer>

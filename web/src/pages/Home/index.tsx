@@ -1,9 +1,13 @@
+import { Resume } from './components/Resume';
+import { TableResume } from './components/TableResume';
+
 import { HomeContainer } from './styles';
 
 export function Home() {
     return(
         <HomeContainer>
-            <h1>Home</h1>
+            <Resume />
+            <TableResume />
         </HomeContainer>
     )
 }

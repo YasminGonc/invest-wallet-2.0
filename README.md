@@ -11,5 +11,6 @@ The design was created on [Figma](https://www.figma.com/file/A5O3JAgcmP3pmjFxIaY
 ## Aplied technologies
 - Built with Vite;
 - Styled-components for styles;
-- React Router to create the router between the pages.
+- React Router to create the router between the pages;
+- JSON Serve to mime the backend until it isn't finished.
  

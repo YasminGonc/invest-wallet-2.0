@@ -5,7 +5,7 @@ export const GeneralInfoContainer = styled.section`
     align-items: center;
     
     background-color: ${props => props.theme['green-100']};
-    padding: 1rem 3rem;
+    padding: 0.5rem 3rem;
 
     img {
         width: 5%;

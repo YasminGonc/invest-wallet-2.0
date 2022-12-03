@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const TableResumeContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
     background-color: ${props => props.theme['brown-300']};
     border-radius: 0.5rem;
     color: ${props => props.theme.white};
@@ -14,7 +18,7 @@ export const TableResumeContainer = styled.div`
         margin-bottom: 0.5rem;
     }
 `
-export const ActivesTable = styled.table`
+export const ActivesTable = styled.table`   
     border-collapse: separate;
     border-spacing: 0 0.5rem;
     text-align: center;

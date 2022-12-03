@@ -7,10 +7,11 @@ export const LateralMenuContainer = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 `
 export const PageButton = styled(NavLink)`
     width: 10rem;
-    height: 4.9rem;
+    height: 5.05rem;
     cursor: pointer;
     text-decoration: none;
     color: ${props => props.theme.black};

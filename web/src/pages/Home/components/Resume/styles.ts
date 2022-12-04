@@ -4,8 +4,6 @@ export const ResumeContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 1rem;
 `
 export const Percent = styled.span`
     background-color: ${props => props.theme['brown-200']};

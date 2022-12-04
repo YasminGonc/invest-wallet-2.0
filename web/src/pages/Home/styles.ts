@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.main`
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    //gap: 4rem;
+
     width: 100%;
+    padding: 1rem 2rem;
+    //gap: 1rem;
+    //justify-content: space-around;
     //background-color: red;
     //overflow-y: scroll;
     /* ::-webkit-scrollbar {

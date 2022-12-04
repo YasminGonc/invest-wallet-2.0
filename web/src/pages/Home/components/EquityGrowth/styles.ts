@@ -6,7 +6,6 @@ export const EquityGrowthContainer = styled.div`
     color: ${props => props.theme.white};
     font-size: 1rem;
 
-    margin: 0 1rem;
     padding: 0.75rem;
 
     h2 {

@@ -1,5 +1,6 @@
-import { EquityGrowth } from './components/EquityGrowth';
-import { Income } from './components/Income';
+import { DivisionRechart } from './components/DivisionRechart';
+import { EquityGrowthRechart } from './components/EquityGrowthRechart';
+import { IncomeRechart } from './components/IncomeRechart';
 import { Resume } from './components/Resume';
 import { TableResume } from './components/TableResume';
 
@@ -11,9 +12,10 @@ export function Home() {
             <Resume />
 
             <FlexHomeContainer>
+                <EquityGrowthRechart />
+                <IncomeRechart />
+                <DivisionRechart />
                 <TableResume />
-                <EquityGrowth />
-                <Income />
             </FlexHomeContainer>
         </HomeContainer>
     )

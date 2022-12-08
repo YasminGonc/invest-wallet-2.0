@@ -1,28 +1,14 @@
 import { IncomeContainer } from './styles';
 
 import { ComposedChart, XAxis, YAxis, Bar, Label, LabelList } from 'recharts';
+import { incomeRechartData } from '../../../../lib/rechartsData';
 
 export function IncomeRechart() {
-    const data = [
-        {
-            year: '2020',
-            Rendimentos: 74.20,
-        },
-        {
-            year: '2021',
-            Rendimentos: 227.88,
-        },
-        {
-            year: '2022',
-            Rendimentos: 259.58,
-        }
-    ];
-
     return (
         <IncomeContainer>
             <h2>Rendimentos</h2>
 
-            <ComposedChart data={data} width={600} height={250} margin={{ top: 10, right: 10, bottom: 15, left: 10 }}>
+            <ComposedChart data={incomeRechartData} width={600} height={250} margin={{ top: 10, right: 10, bottom: 15, left: 10 }}>
                 <XAxis dataKey="year" stroke="#BAB5B5" >
                     <Label value="Ano" offset={0} position="bottom" fill="#BAB5B5" />
                 </XAxis>

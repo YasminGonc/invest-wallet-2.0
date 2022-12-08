@@ -1,36 +1,14 @@
 import { EquityGrowthContainer } from './styles';
 
 import { ComposedChart, XAxis, YAxis, Bar, Line, Label, LabelList } from 'recharts';
+import { equityGrowthRechartData } from '../../../../lib/rechartsData';
 
 export function EquityGrowthRechart() {
-    const data = [
-        {
-            year: '2020',
-            'Valor investido': 100,
-            Patrimônio: 800,
-        },
-        {
-            year: '2021',
-            'Valor investido': 868,
-            Patrimônio: 967,
-        },
-        {
-            year: '2022',
-            'Valor investido': 868,
-            Patrimônio: 967,
-        },
-        {
-            year: '2022',
-            'Valor investido': 868,
-            Patrimônio: 967,
-        }
-    ];
-
     return (
         <EquityGrowthContainer>
             <h2>Crescimento patrimonial</h2>
 
-            <ComposedChart data={data} width={600} height={250} margin={{ top: 10, right: 10, bottom: 15, left: 10 }}>
+            <ComposedChart data={equityGrowthRechartData} width={600} height={250} margin={{ top: 10, right: 10, bottom: 15, left: 10 }}>
                 <XAxis dataKey="year" stroke="#BAB5B5" >
                     <Label value="Ano" offset={0} position="bottom" fill="#BAB5B5" />
                 </XAxis>

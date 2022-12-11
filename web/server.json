@@ -43,13 +43,6 @@
             "dividendAmount": 0
         },
         {
-            "id": 6,
-            "stock": "AMBP3",
-            "quantity": 1,
-            "investedAmount": 2418,
-            "dividendAmount": 0
-        },
-        {
             "id": 7,
             "stock": "WEGE3",
             "quantity": 1,

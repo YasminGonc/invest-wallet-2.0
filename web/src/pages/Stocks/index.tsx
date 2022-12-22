@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PageMainInfo } from '../../components/PageMainInfo';
 import { api } from '../../lib/axios';
 import { priceFormatter } from '../../utils/formatter';
-import { ProfitLossHighlight, StocksContainer, StocksTable } from './styles';
+import { ProfitLossHighlight, ResumeContainer, StocksContainer, StocksTable } from './styles';
 
 interface Stockes {
     id: number;
@@ -27,6 +28,12 @@ export function Stocks() {
 
     return (
         <StocksContainer>
+            <ResumeContainer>
+                <PageMainInfo title='Total aportado' value={1434}/>
+                <PageMainInfo title='Total atualizado' value={1434}/>
+                <PageMainInfo title='Retorno' value={1434}/>
+            </ResumeContainer>
+
             <StocksTable>
                 <thead>
                     <tr>

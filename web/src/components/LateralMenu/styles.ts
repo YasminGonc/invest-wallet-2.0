@@ -9,7 +9,7 @@ export const LateralMenuContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
 
-    //max-height: calc(100vh - 100px);
+    max-height: 80vh;
 `
 export const PageButton = styled(NavLink)`
     width: 10rem;

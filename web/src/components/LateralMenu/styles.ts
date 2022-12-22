@@ -8,6 +8,8 @@ export const LateralMenuContainer = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    //max-height: calc(100vh - 100px);
 `
 export const PageButton = styled(NavLink)`
     width: 10rem;

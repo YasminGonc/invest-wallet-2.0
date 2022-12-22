@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../lib/axios';
 import { priceFormatter } from '../../utils/formatter';
 import { ProfitLossHighlight, StocksContainer, StocksTable } from './styles';
@@ -18,6 +19,12 @@ export function Stocks() {
         api.get('stockes').then(response => setStockes(response.data));
     }, []);
 
+    const navigate = useNavigate();
+    
+    function handleNavigation(active: string) {
+        navigate(`/stocks/${active}`);
+    }
+
     return (
         <StocksContainer>
             <StocksTable>
@@ -27,6 +34,7 @@ export function Stocks() {
                         <td>Quantidade</td>
                         <td>Preço Médio</td>
                         <td>Valor Aportado</td>
+                        <td>Preço Médio Desc.</td>
                         <td>Preço de Mercado</td>
                         <td>Valor de Mercado</td>
                         <td>DY</td>
@@ -36,13 +44,14 @@ export function Stocks() {
                 <tbody>
                     {stockes.map(stock => {
                         return (
-                            <tr key={stock.id}>
+                            <tr key={stock.id} onClick={() => handleNavigation(stock.stock)}>
                                 <td>{stock.stock}</td>
                                 <td>{stock.quantity}</td>
                                 <td>{priceFormatter.format((stock.investedAmount/100) / stock.quantity)}</td>
                                 <td>{priceFormatter.format(stock.investedAmount/100)}</td>
+                                <td>{priceFormatter.format(((stock.investedAmount - stock.dividendAmount)/100) / stock.quantity)}</td>
                                 <td>R$ 35,20</td>
-                                <td>R$ 211,20</td>
+                                <td>R$ 211,20</td>  
                                 <td>DY</td>
                                 <td>
                                     <ProfitLossHighlight variant='profit'>

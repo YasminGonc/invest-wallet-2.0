@@ -31,7 +31,7 @@
         {
             "id": 5,
             "stock": "ITSA4",
-            "quantity": 4,
+            "quantity": 28,
             "investedAmount": 22879,
             "dividendAmount": 1328
         },
@@ -118,6 +118,113 @@
             "quantity": 1,
             "investedAmount": 6996,
             "dividendAmount": 2
+        }
+    ],
+    "reits": [
+        {
+            "id": 1,
+            "reits": "KNRI11",
+            "quantity": 3,
+            "investedAmount": 51014,
+            "dividendAmount": {
+                "total": 7405,
+                "2019": 74,
+                "2020": 1661,
+                "2021": 2556,
+                "2022": 3114
+            }
+        },
+        {
+            "id": 2,
+            "reits": "VINO11",
+            "quantity": 2,
+            "investedAmount": 11830,
+            "dividendAmount": {
+                "total": 2133,
+                "2020": 105,
+                "2021": 1180,
+                "2022": 848
+            }
+        },
+        {
+            "id": 3,
+            "reits": "BCFF11",
+            "quantity": 5,
+            "investedAmount": 49381, 
+            "dividendAmount": {
+                "total": 8138,
+                "2020": 1753,
+                "2021": 3065,
+                "2022": 3320
+            }
+        },
+        {
+            "id": 4,
+            "reits": "MXRF11",
+            "quantity": 23,
+            "investedAmount": 25546,
+            "dividendAmount": {
+                "total": 6150,
+                "2020": 1251,
+                "2021": 2139,
+                "2022": 2760
+            }
+        },
+        {
+            "id": 5,
+            "reits": "ALZR11",
+            "quantity": 1,
+            "investedAmount": 10998,
+            "dividendAmount": {
+                "total": 1109,
+                "2022": 1109
+            }
+        },
+        {
+            "id": 6,
+            "reits": "HGLG11",
+            "quantity": 4,
+            "investedAmount": 69911,
+            "dividendAmount": {
+                "total": 13766,
+                "2020": 1566,
+                "2021": 5780,
+                "2022": 6420
+            }
+        },
+        {
+            "id": 7,
+            "reits": "XPLG11",
+            "quantity": 1,
+            "investedAmount": 12050,
+            "dividendAmount": {
+                "total": 1501,
+                "2021": 671,
+                "2022": 830
+            }
+        },
+        {
+            "id": 8,
+            "reits": "XPML11",
+            "quantity": 2,
+            "investedAmount": 22205,
+            "dividendAmount": {
+                "total": 2438,
+                "2020": 200,
+                "2021": 686,
+                "2022": 1552
+            }
+        },
+        {
+            "id": 9,
+            "reits": "VISC11",
+            "quantity": 1,
+            "investedAmount": 11370,
+            "dividendAmount": {
+                "total": 1439,
+                "2021": 576,
+                "2022": 863
+            }
         }
     ]
 }

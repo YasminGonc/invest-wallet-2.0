@@ -7,6 +7,7 @@ import { PublicTitle } from './pages/PublicTitle';
 import { BDR } from './pages/BDR';
 import { ETF } from './pages/ETF';
 import { Miles } from './pages/Miles';
+import { ActiveDetails } from './pages/ActiveDetails';
 
 export function Router() {
     return (
@@ -19,6 +20,7 @@ export function Router() {
                 <Route path="/bdr" element={ <BDR /> } />
                 <Route path="/etf" element={ <ETF /> } />
                 <Route path="/miles" element={ <Miles /> } />
+                <Route path="/:activeType/:active" element={ <ActiveDetails /> } />
             </Route>
         </Routes>
     )

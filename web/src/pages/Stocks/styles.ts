@@ -25,6 +25,12 @@ export const StocksTable = styled.table`
             border-bottom-right-radius: 6px;
         }
     }
+
+    tbody {
+        tr {
+            cursor: pointer;
+        }
+    }
 `
 interface ProfitLossHighlightProps {
     variant: 'profit' | 'loss'

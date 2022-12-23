@@ -55,10 +55,3 @@ export const StocksTable = styled.table`
         }
     }
 `
-interface ProfitLossHighlightProps {
-    variant: 'profit' | 'loss'
-}
-
-export const ProfitLossHighlight = styled.span<ProfitLossHighlightProps>`
-    color: ${props => props.variant === 'profit' ? props.theme.profit : props.theme.loss};
-`

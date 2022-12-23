@@ -19,7 +19,7 @@ export function LateralMenu() {
                 Ações
             </PageButton>
 
-            <PageButton to="/publicTitle" title="FIIs">
+            <PageButton to="/bonds" title="FIIs">
                 <Bank />
                 Renda fixa
             </PageButton>

@@ -3,7 +3,7 @@ import { DefaultLayout } from './layouts/DefaultLayout';
 import { Home } from './pages/Home';
 import { Stocks } from './pages/Stocks';
 import { Reits } from './pages/Reits';
-import { PublicTitle } from './pages/PublicTitle';
+import { Bonds } from './pages/Bonds';
 import { BDR } from './pages/BDR';
 import { ETF } from './pages/ETF';
 import { Miles } from './pages/Miles';
@@ -16,7 +16,7 @@ export function Router() {
                 <Route path="/" element={ <Home /> } />
                 <Route path="/stocks" element={ <Stocks /> } />
                 <Route path="/reits" element={ <Reits /> } />
-                <Route path="/publicTitle" element={ <PublicTitle /> } />
+                <Route path="/bonds" element= { <Bonds />} />
                 <Route path="/bdr" element={ <BDR /> } />
                 <Route path="/etf" element={ <ETF /> } />
                 <Route path="/miles" element={ <Miles /> } />

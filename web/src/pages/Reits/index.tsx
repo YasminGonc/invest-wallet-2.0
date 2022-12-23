@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PageMainInfo } from "../../components/PageMainInfo";
 import { ProfitLossHighlight } from "../../components/ProfitLossHighlight";
 import { api } from "../../lib/axios";
@@ -26,6 +27,12 @@ export function Reits() {
         api.get('reits').then(response => setReits(response.data))
     }, []);
 
+    const navigate = useNavigate();
+
+    function handleNavigation(active: string) {
+        navigate(`/reits/${active}`);
+    }
+
     return (
         <ReitsContainer>
             <ResumeContainer>
@@ -51,7 +58,7 @@ export function Reits() {
                 <tbody>
                     {reits.map(reit => {
                         return(
-                            <tr key={reit.id}>
+                            <tr key={reit.id} onClick={() => handleNavigation(reit.reits)}>
                                 <td>{reit.reits}</td>
                                 <td>{reit.quantity}</td>
                                 <td>{priceFormatter.format((reit.investedAmount / 100) / reit.quantity)}</td>

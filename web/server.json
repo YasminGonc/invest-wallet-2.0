@@ -226,5 +226,23 @@
                 "2022": 863
             }
         }
+    ],
+    "bonds": [
+        {
+            "id": 1,
+            "bond": "Reserva de emergência",
+            "institution": "Iti",
+            "rate": 10000,
+            "rateType": "CDI",
+            "value": 14507
+        },
+        {
+            "id": 2,
+            "bond": "ViMin Residence",
+            "institution": "XP",
+            "rate": 10625,
+            "rateType": "CDI",
+            "value": 100000
+        }
     ]
 }

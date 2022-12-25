@@ -244,5 +244,19 @@
             "rateType": "CDI",
             "value": 100000
         }
+    ],
+    "etf": [
+        {
+            "id": 1,
+            "etf": "QBTC11",
+            "quantity": 5,
+            "investedAmount": 5710
+        },
+        {
+            "id": 1,
+            "etf": "QETH11",
+            "quantity": 1,
+            "investedAmount": 431
+        }
     ]
 }

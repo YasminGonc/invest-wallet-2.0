@@ -6,7 +6,7 @@ export const defaultTheme = {
     white: '#FFFFFF',
     black: '#000000',
     profit: '#3BC14A',
-    loss: '#C94277',
+    loss: '#8F250C',
 
     'green-100': '#89CFCC',
     'green-200': '#6EC4C0',

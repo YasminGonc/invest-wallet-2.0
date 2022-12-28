@@ -11,7 +11,14 @@ interface Stockes {
     stock: string;
     quantity: number;
     investedAmount: number;
-    dividendAmount: number;
+    marketValue: number,
+    dividendAmount: {
+        total: number;
+        '2019'?: number;
+        '2020'?: number;
+        '2021'?: number;
+        '2022'?: number;
+    }
 }
 
 export function Stocks() {
@@ -51,18 +58,23 @@ export function Stocks() {
                 </thead>
                 <tbody>
                     {stockes.map(stock => {
+                        const activeReturn = Number(((((stock.marketValue * stock.quantity) - stock.investedAmount) / stock.investedAmount) * 100).toFixed(2));
+
                         return (
                             <tr key={stock.id} onClick={() => handleNavigation(stock.stock)}>
                                 <td>{stock.stock}</td>
                                 <td>{stock.quantity}</td>
                                 <td>{priceFormatter.format((stock.investedAmount / 100) / stock.quantity)}</td>
                                 <td>{priceFormatter.format(stock.investedAmount / 100)}</td>
-                                <td>{priceFormatter.format(((stock.investedAmount - stock.dividendAmount) / 100) / stock.quantity)}</td>
-                                <td>R$ 35,20</td>
-                                <td>R$ 211,20</td>
+                                <td>{priceFormatter.format(((stock.investedAmount - stock.dividendAmount.total) / 100) / stock.quantity)}</td>
+                                <td>{priceFormatter.format(stock.marketValue / 100)}</td>
+                                <td>{priceFormatter.format((stock.marketValue / 100) * stock.quantity)}</td>
                                 <td>DY</td>
                                 <td>
-                                    <ProfitLossHighlight variant='profit' value={9.10} />
+                                    <ProfitLossHighlight 
+                                        value={activeReturn} 
+                                        variant={activeReturn > 0 ? 'profit' : 'loss'}
+                                    />
                                 </td>
                             </tr>
                         )

@@ -5,7 +5,7 @@
             "stock": "BBSE3",
             "quantity": 7,
             "investedAmount": 15980,
-            "marketValue": 3320,
+            "marketPrice": 3320,
             "dividendAmount": {
                 "total": 1930,
                 "2021": 449,
@@ -17,7 +17,7 @@
             "stock": "PSSA3",
             "quantity": 5,
             "investedAmount": 9533,
-            "marketValue": 2298,
+            "marketPrice": 2298,
             "dividendAmount": {
                 "total": 89,
                 "2022": 89
@@ -28,7 +28,7 @@
             "stock": "BBAS3",
             "quantity": 5,
             "investedAmount": 15680,
-            "marketValue": 3461,
+            "marketPrice": 3461,
             "dividendAmount": {
                 "total": 1060,
                 "2020": 198,
@@ -41,7 +41,7 @@
             "stock": "BBDC4",
             "quantity": 4,
             "investedAmount": 8260,
-            "marketValue": 1475,
+            "marketPrice": 1475,
             "dividendAmount": {
                 "total": 804,
                 "2021": 723,
@@ -53,7 +53,7 @@
             "stock": "ITSA4",
             "quantity": 28,
             "investedAmount": 22879,
-            "marketValue": 840,
+            "marketPrice": 840,
             "dividendAmount": {
                 "total": 1328,
                 "2020": 12,
@@ -66,7 +66,7 @@
             "stock": "AMBP3",
             "quantity": 1,
             "investedAmount": 2418,
-            "marketValue": 2075,
+            "marketPrice": 2075,
             "dividendAmount": {
                 "total": 0
             }
@@ -76,7 +76,7 @@
             "stock": "WEGE3",
             "quantity": 1,
             "investedAmount": 2624,
-            "marketValue": 3822,
+            "marketPrice": 3822,
             "dividendAmount": {
                 "total": 17,
                 "2022": 17
@@ -87,7 +87,7 @@
             "stock": "KLBN4",
             "quantity": 10,
             "investedAmount": 4708,
-            "marketValue": 392,
+            "marketPrice": 392,
             "dividendAmount": {
                 "total": 285,
                 "2021": 55,
@@ -99,7 +99,7 @@
             "stock": "MGLU3",
             "quantity": 3,
             "investedAmount": 3157,
-            "marketValue": 254,
+            "marketPrice": 254,
             "dividendAmount": {
                 "total": 1,
                 "2022": 1
@@ -110,7 +110,7 @@
             "stock": "LREN3",
             "quantity": 2,
             "investedAmount": 7487,
-            "marketValue": 2059,
+            "marketPrice": 2059,
             "dividendAmount": {
                 "total": 48,
                 "2022": 48
@@ -121,7 +121,7 @@
             "stock": "SAPR4",
             "quantity": 3,
             "investedAmount": 1410,
-            "marketValue": 364,
+            "marketPrice": 364,
             "dividendAmount": {
                 "total": 59,
                 "2022": 59
@@ -132,7 +132,7 @@
             "stock": "SAPR11",
             "quantity": 6,
             "investedAmount": 14327,
-            "marketValue": 1794,
+            "marketPrice": 1794,
             "dividendAmount": {
                 "total": 619,
                 "2021": 125,
@@ -144,7 +144,7 @@
             "stock": "ALUP4",
             "quantity": 2,
             "investedAmount": 1776,
-            "marketValue": 943,
+            "marketPrice": 943,
             "dividendAmount": {
                 "total": 68,
                 "2021": 27,
@@ -156,7 +156,7 @@
             "stock": "TAEE11",
             "quantity": 5,
             "investedAmount": 14876,
-            "marketValue": 3476,
+            "marketPrice": 3476,
             "dividendAmount": {
                 "total": 4287,
                 "2020": 665,
@@ -169,7 +169,7 @@
             "stock": "TRPL4",
             "quantity": 6,
             "investedAmount": 13308,
-            "marketValue": 2272,
+            "marketPrice": 2272,
             "dividendAmount": {
                 "total": 2028,
                 "2020": 209,
@@ -182,7 +182,7 @@
             "stock": "NEOE3",
             "quantity": 1,
             "investedAmount": 1650,
-            "marketValue": 1531,
+            "marketPrice": 1531,
             "dividendAmount": {
                 "total": 88,
                 "2021": 12,
@@ -194,10 +194,27 @@
             "stock": "NVDC34",
             "quantity": 3,
             "investedAmount": 6996,
-            "marketValue": 1560,
+            "marketPrice": 1560,
             "dividendAmount": {
                 "total": 0
             }
+        }
+    ],
+    "resume": [
+        {
+            "id": "stockes",
+            "discountedInvestedAmount": 143215,
+            "marketValue": 157492
+        },
+        {
+            "id": "reits",
+            "discountedInvestedAmount": 220000,
+            "marketValue": 225410
+        },
+        {
+            "id": "etf",
+            "discountedInvestedAmount": 6165,
+            "marketValue": 3106
         }
     ],
     "reits": [
@@ -206,6 +223,7 @@
             "reits": "KNRI11",
             "quantity": 3,
             "investedAmount": 51014,
+            "marketPrice": 14098,
             "dividendAmount": {
                 "total": 7405,
                 "2019": 74,
@@ -219,6 +237,7 @@
             "reits": "VINO11",
             "quantity": 2,
             "investedAmount": 11830,
+            "marketPrice": 4810,
             "dividendAmount": {
                 "total": 2133,
                 "2020": 105,
@@ -230,7 +249,8 @@
             "id": 3,
             "reits": "BCFF11",
             "quantity": 5,
-            "investedAmount": 49381, 
+            "investedAmount": 49381,
+            "marketPrice": 6519, 
             "dividendAmount": {
                 "total": 8138,
                 "2020": 1753,
@@ -243,6 +263,7 @@
             "reits": "MXRF11",
             "quantity": 23,
             "investedAmount": 25546,
+            "marketPrice": 1007,
             "dividendAmount": {
                 "total": 6150,
                 "2020": 1251,
@@ -255,6 +276,7 @@
             "reits": "ALZR11",
             "quantity": 1,
             "investedAmount": 10998,
+            "marketPrice": 11284,
             "dividendAmount": {
                 "total": 1109,
                 "2022": 1109
@@ -265,6 +287,7 @@
             "reits": "HGLG11",
             "quantity": 4,
             "investedAmount": 69911,
+            "marketPrice": 16330,
             "dividendAmount": {
                 "total": 13766,
                 "2020": 1566,
@@ -277,6 +300,7 @@
             "reits": "XPLG11",
             "quantity": 1,
             "investedAmount": 12050,
+            "marketPrice": 9815,
             "dividendAmount": {
                 "total": 1501,
                 "2021": 671,
@@ -288,6 +312,7 @@
             "reits": "XPML11",
             "quantity": 2,
             "investedAmount": 22205,
+            "marketPrice": 9500,
             "dividendAmount": {
                 "total": 2438,
                 "2020": 200,
@@ -300,6 +325,7 @@
             "reits": "VISC11",
             "quantity": 1,
             "investedAmount": 11370,
+            "marketPrice": 10386,
             "dividendAmount": {
                 "total": 1439,
                 "2021": 576,
@@ -314,7 +340,7 @@
             "institution": "Iti",
             "rate": 10000,
             "rateType": "CDI",
-            "value": 14507
+            "value": 32533
         },
         {
             "id": 2,
@@ -330,13 +356,15 @@
             "id": 1,
             "etf": "QBTC11",
             "quantity": 5,
-            "investedAmount": 5710
+            "investedAmount": 5710,
+            "marketPrice": 540
         },
         {
-            "id": 1,
+            "id": 2,
             "etf": "QETH11",
             "quantity": 1,
-            "investedAmount": 431
+            "investedAmount": 431,
+            "marketPrice": 433
         }
     ]
 }

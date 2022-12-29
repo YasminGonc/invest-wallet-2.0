@@ -10,6 +10,7 @@ export const LateralMenuContainer = styled.nav`
     justify-content: space-between;
 
     max-height: 80vh;
+    min-height: 76vh;
 `
 export const PageButton = styled(NavLink)`
     width: 10rem;

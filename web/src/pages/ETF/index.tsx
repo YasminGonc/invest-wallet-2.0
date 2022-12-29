@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PageMainInfo } from "../../components/PageMainInfo";
 import { ProfitLossHighlight } from "../../components/ProfitLossHighlight";
 import { api } from "../../lib/axios";
 import { priceFormatter } from "../../utils/formatter";
-import { EtfContainer, EtfTable } from "./styles";
+import { EtfContainer, EtfTable, ResumeContainer } from "./styles";
 
 interface etf {
     id: number;
     etf: string;
     quantity: number;
     investedAmount: number;
+    marketPrice: number;
+}
+
+interface Resume {
+    id: string;
+    discountedInvestedAmount: number;
+    marketValue: number;
 }
 
 export function ETF() {
     const [etf, setEtf] = useState<etf[]>([]);
+    const [resume, setResume] = useState<Resume[]>([]);
 
     useEffect(() => {
-        api.get('etf').then(response => setEtf(response.data))
+        api.get('etf').then(response => setEtf(response.data));
+        api.get('resume').then(response => setResume(response.data));
     }, []);
 
     const navigate = useNavigate();
@@ -27,6 +37,14 @@ export function ETF() {
 
     return (
         <EtfContainer>
+            {resume[2] &&
+                <ResumeContainer>
+                    <PageMainInfo title='Total aportado' value={resume[2].discountedInvestedAmount / 100} type='currency' />
+                    <PageMainInfo title='Total atualizado' value={resume[2].marketValue / 100} type='currency' />
+                    <PageMainInfo title='Retorno' value={Number((((resume[2].marketValue - resume[2].discountedInvestedAmount) / resume[2].discountedInvestedAmount) * 100).toFixed(2))} type='percent' />
+                </ResumeContainer>
+            }
+            
             <EtfTable>
                 <thead>
                     <tr>
@@ -41,16 +59,25 @@ export function ETF() {
                 </thead>
                 <tbody>
                     {etf.map(etf => {
-                        return(
+                        const investedAmount = etf.investedAmount / 100;
+                        const averagePrice = investedAmount / etf.quantity;
+                        const marketPrice = etf.marketPrice / 100;
+                        const marketValue = marketPrice * etf.quantity;
+                        const activeReturn = Number((((marketValue - investedAmount) / investedAmount) * 100).toFixed(2));
+
+                        return (
                             <tr key={etf.id} onClick={() => handleNavigation(etf.etf)}>
                                 <td>{etf.etf}</td>
                                 <td>{etf.quantity}</td>
-                                <td>{priceFormatter.format((etf.investedAmount / 100) / etf.quantity)}</td>
-                                <td>{priceFormatter.format(etf.investedAmount / 100)}</td>
-                                <td>R$ 35,20</td>
-                                <td>R$ 211,20</td>
+                                <td>{priceFormatter.format(averagePrice)}</td>
+                                <td>{priceFormatter.format(investedAmount)}</td>
+                                <td>{priceFormatter.format(marketPrice)}</td>
+                                <td>{priceFormatter.format(marketValue)}</td>
                                 <td>
-                                    <ProfitLossHighlight variant='profit' value={9.10} />
+                                    <ProfitLossHighlight
+                                        variant={activeReturn > 0 ? 'profit' : 'loss'}
+                                        value={activeReturn}
+                                    />
                                 </td>
                             </tr>
                         )

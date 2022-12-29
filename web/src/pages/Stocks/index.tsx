@@ -11,7 +11,7 @@ interface Stockes {
     stock: string;
     quantity: number;
     investedAmount: number;
-    marketValue: number,
+    marketPrice: number;
     dividendAmount: {
         total: number;
         '2019'?: number;
@@ -21,11 +21,19 @@ interface Stockes {
     }
 }
 
+interface Resume {
+    id: string;
+    discountedInvestedAmount: number;
+    marketValue: number;
+}
+
 export function Stocks() {
     const [stockes, setStockes] = useState<Stockes[]>([]);
+    const [resume, setResume] = useState<Resume[]>([]);
 
     useEffect(() => {
         api.get('stockes').then(response => setStockes(response.data));
+        api.get('resume').then(response => setResume(response.data));
     }, []);
 
     const navigate = useNavigate();
@@ -36,11 +44,13 @@ export function Stocks() {
 
     return (
         <StocksContainer>
-            <ResumeContainer>
-                <PageMainInfo title='Total aportado' value={1434} type='currency' />
-                <PageMainInfo title='Total atualizado' value={1434} type='currency' />
-                <PageMainInfo title='Retorno' value={1434} type='percent' />
-            </ResumeContainer>
+            {resume[0] &&
+                <ResumeContainer>
+                    <PageMainInfo title='Total aportado' value={resume[0].discountedInvestedAmount / 100} type='currency' />
+                    <PageMainInfo title='Total atualizado' value={resume[0].marketValue / 100} type='currency' />
+                    <PageMainInfo title='Retorno' value={Number((((resume[0].marketValue - resume[0].discountedInvestedAmount) / resume[0].discountedInvestedAmount) * 100).toFixed(2))} type='percent' />
+                </ResumeContainer>
+            }
 
             <StocksTable>
                 <thead>
@@ -58,21 +68,27 @@ export function Stocks() {
                 </thead>
                 <tbody>
                     {stockes.map(stock => {
-                        const activeReturn = Number(((((stock.marketValue * stock.quantity) - stock.investedAmount) / stock.investedAmount) * 100).toFixed(2));
+                        const investedAmount = stock.investedAmount / 100;
+                        const averagePrice = investedAmount / stock.quantity;
+                        const discountedAveragePrice = ((stock.investedAmount - stock.dividendAmount.total) / 100) / stock.quantity;
+                        const discountedAmount = discountedAveragePrice * stock.quantity;
+                        const marketPrice = stock.marketPrice / 100;
+                        const marketValue = marketPrice * stock.quantity;
+                        const activeReturn = Number((((marketValue - discountedAmount) / discountedAmount) * 100).toFixed(2));
 
                         return (
                             <tr key={stock.id} onClick={() => handleNavigation(stock.stock)}>
                                 <td>{stock.stock}</td>
                                 <td>{stock.quantity}</td>
-                                <td>{priceFormatter.format((stock.investedAmount / 100) / stock.quantity)}</td>
-                                <td>{priceFormatter.format(stock.investedAmount / 100)}</td>
-                                <td>{priceFormatter.format(((stock.investedAmount - stock.dividendAmount.total) / 100) / stock.quantity)}</td>
-                                <td>{priceFormatter.format(stock.marketValue / 100)}</td>
-                                <td>{priceFormatter.format((stock.marketValue / 100) * stock.quantity)}</td>
+                                <td>{priceFormatter.format(averagePrice)}</td>
+                                <td>{priceFormatter.format(investedAmount)}</td>
+                                <td>{priceFormatter.format(discountedAveragePrice)}</td>
+                                <td>{priceFormatter.format(marketPrice)}</td>
+                                <td>{priceFormatter.format(marketValue)}</td>
                                 <td>DY</td>
                                 <td>
-                                    <ProfitLossHighlight 
-                                        value={activeReturn} 
+                                    <ProfitLossHighlight
+                                        value={activeReturn}
                                         variant={activeReturn > 0 ? 'profit' : 'loss'}
                                     />
                                 </td>

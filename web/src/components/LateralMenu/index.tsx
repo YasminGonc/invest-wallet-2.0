@@ -24,11 +24,6 @@ export function LateralMenu() {
                 Renda fixa
             </PageButton>
 
-            <PageButton to="/bdr" title="BDR">
-                <GlobeHemisphereWest />
-                BDR
-            </PageButton>
-
             <PageButton to="/etf" title="ETF">
                 <Coins />
                 ETF

@@ -20,6 +20,13 @@ export const EtfContainer = styled.main`
 
     color: ${props => props.theme.white};
 `
+export const ResumeContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+`
 export const EtfTable = styled.table`   
     width: 100%;
 

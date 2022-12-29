@@ -11,6 +11,7 @@ interface Reits {
     reits: string;
     quantity: number;
     investedAmount: number;
+    marketPrice: number;
     dividendAmount: {
         total: number;
         '2019'?: number;
@@ -20,11 +21,19 @@ interface Reits {
     }
 }
 
+interface Resume {
+    id: string;
+    discountedInvestedAmount: number;
+    marketValue: number;
+}
+
 export function Reits() {
     const [reits, setReits] = useState<Reits[]>([]);
+    const [resume, setResume] = useState<Resume[]>([]);
 
     useEffect(() => {
-        api.get('reits').then(response => setReits(response.data))
+        api.get('reits').then(response => setReits(response.data));
+        api.get('resume').then(response => setResume(response.data));
     }, []);
 
     const navigate = useNavigate();
@@ -35,11 +44,13 @@ export function Reits() {
 
     return (
         <ReitsContainer>
-            <ResumeContainer>
-                <PageMainInfo title='Total aportado' value={1434} type='currency' />
-                <PageMainInfo title='Total atualizado' value={1434} type='currency' />
-                <PageMainInfo title='Retorno' value={1434} type='percent' />
-            </ResumeContainer>
+            {resume[1] &&
+                <ResumeContainer>
+                    <PageMainInfo title='Total aportado' value={resume[1].discountedInvestedAmount / 100} type='currency' />
+                    <PageMainInfo title='Total atualizado' value={resume[1].marketValue / 100} type='currency' />
+                    <PageMainInfo title='Retorno' value={Number((((resume[1].marketValue - resume[1].discountedInvestedAmount) / resume[1].discountedInvestedAmount) * 100).toFixed(2))} type='percent' />
+                </ResumeContainer>
+            }
 
             <ReitsTable>
                 <thead>
@@ -57,18 +68,29 @@ export function Reits() {
                 </thead>
                 <tbody>
                     {reits.map(reit => {
-                        return(
+                        const investedAmount = reit.investedAmount / 100;
+                        const averagePrice = investedAmount / reit.quantity;
+                        const discountedAveragePrice = ((reit.investedAmount - reit.dividendAmount.total) / 100) / reit.quantity;
+                        const discountedAmount = discountedAveragePrice * reit.quantity;
+                        const marketPrice = reit.marketPrice / 100;
+                        const marketValue = marketPrice * reit.quantity;
+                        const activeReturn = Number((((marketValue - discountedAmount) / discountedAmount) * 100).toFixed(2));
+
+                        return (
                             <tr key={reit.id} onClick={() => handleNavigation(reit.reits)}>
                                 <td>{reit.reits}</td>
                                 <td>{reit.quantity}</td>
-                                <td>{priceFormatter.format((reit.investedAmount / 100) / reit.quantity)}</td>
-                                <td>{priceFormatter.format(reit.investedAmount / 100)}</td>
-                                <td>{priceFormatter.format(((reit.investedAmount - reit.dividendAmount.total) / 100) / reit.quantity)}</td>
-                                <td>R$ 35,00</td>
-                                <td>R$ 211,20</td>
+                                <td>{priceFormatter.format(averagePrice)}</td>
+                                <td>{priceFormatter.format(investedAmount)}</td>
+                                <td>{priceFormatter.format(discountedAveragePrice)}</td>
+                                <td>{priceFormatter.format(marketPrice)}</td>
+                                <td>{priceFormatter.format(marketValue)}</td>
                                 <td>DY</td>
                                 <td>
-                                    <ProfitLossHighlight variant='profit' value={9.10} />
+                                    <ProfitLossHighlight
+                                        variant={activeReturn > 0 ? 'profit' : 'loss'}
+                                        value={activeReturn}
+                                    />
                                 </td>
                             </tr>
                         )

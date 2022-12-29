@@ -41,10 +41,4 @@ export const BondsTable = styled.table`
             border-bottom-right-radius: 6px;
         }
     }
-
-    tbody {
-        tr {
-            cursor: pointer;
-        }
-    }
 `  
